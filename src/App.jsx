@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { fetchDataFromApi } from "./utils/api";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,10 +19,8 @@ function App() {
     fetchApiConfig();
     genresCall()
   }, []);
-  // console.log(url);
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
-      // console.log(res);
       const url = {
         backdrop : res.images.secure_base_url + "original",
         poster : res.images.secure_base_url + "original",
